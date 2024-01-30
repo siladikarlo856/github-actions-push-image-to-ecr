@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build . --file Dockerfile -t my-image
+        run: docker build --tag my-image:v1 .
 
       - name: Login to ECR
         id: ecr-login
@@ -28,4 +28,4 @@ jobs:
           access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           region: eu-north-1
-          image: my-image:latest
+          image: my-image:v1
