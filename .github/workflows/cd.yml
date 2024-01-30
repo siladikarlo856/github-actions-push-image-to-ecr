@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: docker build . --file Dockerfile -t my-image
       - name: Push to ECR
         id: ecr
         uses: jwalton/gh-ecr-push@v1
